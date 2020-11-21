@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const Header = (props) => {
+  console.log(props);
   return(
     <h1>{props.course}</h1>
   )
@@ -27,19 +28,26 @@ const Total = (props) => {
 
 const App = () => {
   const course = 'Half Stack development Course';
-  const part1 = 'Fundamentals of React and Javacsript Programming';
-  const exercise1 = 10;
-  const part2 = 'Using props to pass the data';
-  const exercise2 = 7;
-  const part3 = 'State of the Component';
-  const exercise3 = 14;
-  
+  const parts = [
+    {
+      name: 'Fundamentals of React and Javacsript Programming',
+      exercises: 10,
+    },
+    {
+      name:'Using props to pass the data',
+      exercises: 7,
+    },
+    {
+      name: 'State of the Component',
+      exercises: 14,
+    }
+  ]  
   return (
-    <div>
+    <>
       <Header course={course} />
-      <Content part1 = {part1} part2 = {part2} part3 = {part3} exercise1 = {exercise1} exercise2 ={exercise2} exercise3 = {exercise3} />
-      <Total exercise1 = {exercise1} exercise2 ={exercise2} exercise3 = {exercise3}/>
-     </div>
+      <Content part1 = {parts[0].name} part2 = {parts[1].name} part3 = {parts[2].name} exercise1 = {parts[0].exercises} exercise2 ={parts[1].exercises} exercise3 = {parts[2].exercises} />
+      <Total exercise1 = {parts[0].exercises} exercise2 ={parts[1].exercises} exercise3 = {parts[2].exercises}/>
+     </>
   )
 }
 
